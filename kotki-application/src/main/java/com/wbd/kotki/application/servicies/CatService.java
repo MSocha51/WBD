@@ -20,4 +20,10 @@ public class CatService {
 		catRepo.findAll().forEach( (x) -> catList.add(x) );
 		return catList;
 	}
+	
+	public List<Cat> getUnadopptedCatList(){
+		List<Cat> catList = new LinkedList<Cat>();
+		catRepo.findUnaddoptedCats().forEach( (x) -> catList.add(x) );
+		return catList; 
+	}
 }

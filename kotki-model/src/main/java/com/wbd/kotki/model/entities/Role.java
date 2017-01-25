@@ -12,51 +12,45 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "RASY", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_RASY" }),
+@Table(name="ROLE",
+uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_ROLI" }),
 		@UniqueConstraint(columnNames = { "NAZWA" }) })
-public class Race {
+public class Role {
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_RASY", nullable=false, unique=true)
+	@Column(name="ID_ROLI",unique=true,nullable=false)
 	private Long id;
-	@Column(name = "NAZWA",nullable=false, unique=true)
-	private String raceName;
-	@OneToMany(mappedBy = "race")
-	private Set<Cat> cats = new HashSet<Cat>();
-
+	@Column(name="NAZWA",unique=true,nullable=false)
+	private String name;
+	@OneToMany(mappedBy= "role")
+	private Set<User> users = new HashSet<User>();
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getRaceName() {
-		return raceName;
+	public String getName() {
+		return name;
 	}
-
-	public void setRaceName(String raceName) {
-		this.raceName = raceName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public Set<Cat> getCats() {
-		return cats;
+	public Set<User> getUsers() {
+		return users;
 	}
-
-	public void setCats(Set<Cat> cats) {
-		this.cats = cats;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((raceName == null) ? 0 : raceName.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -65,23 +59,23 @@ public class Race {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Race other = (Race) obj;
+		Role other = (Role) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (raceName == null) {
-			if (other.raceName != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!raceName.equals(other.raceName))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "Race [id=" + id + ", raceName=" + raceName + "]";
+		return "Role [id=" + id + ", name=" + name + "]";
 	}
-
+	
+	
 }
