@@ -12,35 +12,42 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="Rasy",
-	uniqueConstraints={@UniqueConstraint(columnNames={"Id_rasy"})})
+@Table(name = "Rasy", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_RASY" }),
+		@UniqueConstraint(columnNames = { "NAZWA" }) })
 public class Race {
 	@Id
 	@GeneratedValue
-	@Column(name="Id_rasy")
+	@Column(name = "ID_RASY", nullable=false, unique=true)
 	private Long id;
-	@Column(name="Nazwa")
+	@Column(name = "NAZWA",nullable=false, unique=true)
 	private String raceName;
-	@OneToMany(mappedBy="race")
+	@OneToMany(mappedBy = "race")
 	private Set<Cat> cats = new HashSet<Cat>();
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getRaceName() {
 		return raceName;
 	}
+
 	public void setRaceName(String raceName) {
 		this.raceName = raceName;
 	}
+
 	public Set<Cat> getCats() {
 		return cats;
 	}
+
 	public void setCats(Set<Cat> cats) {
 		this.cats = cats;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -49,6 +56,7 @@ public class Race {
 		result = prime * result + ((raceName == null) ? 0 : raceName.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,11 +78,10 @@ public class Race {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Race [id=" + id + ", raceName=" + raceName + "]";
 	}
-	
-	
-	
+
 }

@@ -7,97 +7,123 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PreRemove;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="KOTY",
-uniqueConstraints={@UniqueConstraint(columnNames={"ID_KOTA"})})
+@Table(name = "KOTY", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_KOTA" }) })
 public class Cat {
 	@Id
 	@GeneratedValue
-	@Column(name="ID_KOTA")
+	@Column(name = "ID_KOTA")
 	private Long id;
-	@Column(name="DATA_URODZENIA")
+	@Column(name = "DATA_URODZENIA")
 	private Date birthdayDate;
-	@Column(name="IMIE")
+	@Column(name = "IMIE")
 	private String name;
-	@Column(name="PLEC")
+	@Column(name = "PLEC")
 	private Character sex;
-	@Column(name="KOMPLET_LAPEK")
+	@Column(name = "KOMPLET_LAPEK")
 	private Character pawns;
-	@Column(name="STERYLIZACJA")
+	@Column(name = "STERYLIZACJA")
 	private Character sterizlization;
-	@Column(name="WZROK")
+	@Column(name = "WZROK")
 	private Character sight;
 	@ManyToOne
-	@JoinColumn(name="ID_RASY")
+	@JoinColumn(name = "ID_RASY")
 	private Race race;
-	@Column(name="ID_ODDZIALU")
+	@Column(name = "ID_ODDZIALU")
 	private Long idOddzial;
-	@Column(name="ID_KLIENTA")
-	private Long idPerosn;
+	@ManyToOne
+	@JoinColumn(name = "ID_KLIENTA")
+	private Client owner;
+	
+	@PreRemove
+	private void prepareToRemove(){
+		race.getCats().remove(this);
+	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public Date getBirthdayDate() {
 		return birthdayDate;
 	}
+
 	public void setBirthdayDate(Date birthdayDate) {
 		this.birthdayDate = birthdayDate;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Character getSex() {
 		return sex;
 	}
+
 	public void setSex(Character sex) {
 		this.sex = sex;
 	}
+
 	public Character getPawns() {
 		return pawns;
 	}
+
 	public void setPawns(Character pawns) {
 		this.pawns = pawns;
 	}
+
 	public Character getSterizlization() {
 		return sterizlization;
 	}
+
 	public void setSterizlization(Character sterizlization) {
 		this.sterizlization = sterizlization;
 	}
+
 	public Character getSight() {
 		return sight;
 	}
+
 	public void setSight(Character sight) {
 		this.sight = sight;
 	}
+
 	public Race getRace() {
 		return race;
 	}
+
 	public void setRace(Race race) {
 		this.race = race;
 	}
-	
+
 	public Long getIdOddzial() {
 		return idOddzial;
 	}
+
 	public void setIdOddzial(Long idOddzial) {
 		this.idOddzial = idOddzial;
 	}
-	public Long getIdPerosn() {
-		return idPerosn;
+
+	public Client getOwner() {
+		return owner;
 	}
-	public void setIdPerosn(Long idPerosn) {
-		this.idPerosn = idPerosn;
+
+	public void setOwner(Client owner) {
+		this.owner = owner;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,6 +138,7 @@ public class Cat {
 		result = prime * result + ((sterizlization == null) ? 0 : sterizlization.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -163,12 +190,11 @@ public class Cat {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Cat [id=" + id + ", birthdayDate=" + birthdayDate + ", name=" + name + ", sex=" + sex + ", pawns="
 				+ pawns + ", sterizlization=" + sterizlization + ", sight=" + sight + ", race=" + race + "]";
 	}
-	
-	
 
 }
