@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 @Entity
@@ -24,7 +25,9 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name="ID_ROLI")
 	private Role role;
-	
+	@OneToOne
+	@JoinColumn(name="ID_KLIENTA",nullable=true)
+	private Client client;
 	
 	public Long getId() {
 		return id;
@@ -50,8 +53,58 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
-	
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((mail == null) ? 0 : mail.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (mail == null) {
+			if (other.mail != null)
+				return false;
+		} else if (!mail.equals(other.mail))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", mail=" + mail + ", password=" + password + ", role=" + role + "]";
+	}
+
 	
 	
 }

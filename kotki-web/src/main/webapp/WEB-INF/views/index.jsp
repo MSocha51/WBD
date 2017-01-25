@@ -12,6 +12,10 @@
 <c:forEach var="cat" items="${cats}">
 	${cat.name}<br />
 </c:forEach>
+Niezadoptowane kotki (przygarnij):
+<c:forEach var="cat" items="${unnCats}">
+	${cat.name}<br />
+</c:forEach>
 
 </body>
 </html>

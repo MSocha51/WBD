@@ -16,6 +16,7 @@ public class CatController {
 	@RequestMapping("/")
 	public String getIndex(Model model){
 		model.addAttribute("cats", cats.getCatsList());
+		model.addAttribute("unnCats", cats.getUnadopptedCatList());
 		return "index";
 	}
 }
