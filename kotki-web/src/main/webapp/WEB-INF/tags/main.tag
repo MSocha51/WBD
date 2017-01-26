@@ -51,15 +51,7 @@
 				</a>
 			</span>
 			</sec:authorize>
-			<span>
-			<sec:authorize access="isAuthenticated()">
-				<a href="<c:url value="/logout"/>">
-					<strong>
-						Wyloguj się
-					</strong>
-				</a>
-			</sec:authorize>
-			</span>
+
 			<sec:authorize access="hasRole('ROLE_WORKER')">
 			<span>
 			
@@ -70,6 +62,15 @@
 				</a>
 			</span>
 			</sec:authorize>
+			<span>
+			<sec:authorize access="isAuthenticated()">
+				<a href="<c:url value="/logout"/>">
+					<strong>
+						Wyloguj się
+					</strong>
+				</a>
+			</sec:authorize>
+			</span>
 		</div>
 		<div id="content">
 		<jsp:doBody></jsp:doBody>
