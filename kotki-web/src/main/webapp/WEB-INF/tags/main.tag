@@ -18,10 +18,34 @@
 	</div>
 	<div id="contener">
 
+		<div id="logo">
+		<a href="<c:url value="/index"/>">
+			<img src="<c:url value="/resources/title.png"/>"  alt="title" id="title"/>
+		</a>
+	</div>
+	<div id="contener">
+
 		<div id="menu">
-			<span> <a href="<c:url value="/cats"/>"><strong>Koty</strong></a>
-			</span> <span> <a href="<c:url value="/"/>"><strong>Kontakt</strong></a>
-			</span> <span> <a href="<c:url value="/"/>"><strong>Zaloguj się</strong></a>
+			<span> 
+				<a href="<c:url value="/"/>">
+					<strong>
+						Koty
+					</strong>
+				</a>
+			</span>
+			<span>
+				<a href="<c:url value="/"/>">
+					<strong>
+						Kontakt
+					</strong>
+				</a>
+			</span>
+			<span>
+				<a href="<c:url value="/login"/>">
+					<strong>
+						Zaloguj się
+					</strong>
+				</a>
 			</span>
 		</div>
 		<div id="content">
