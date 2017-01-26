@@ -6,8 +6,10 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -17,7 +19,8 @@ uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_ROLI" }),
 		@UniqueConstraint(columnNames = { "NAZWA" }) })
 public class Role {
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name="SEQ_GEN", sequenceName="ROLE_SEQ", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
 	@Column(name="ID_ROLI",unique=true,nullable=false)
 	private Long id;
 	@Column(name="NAZWA",unique=true,nullable=false)
