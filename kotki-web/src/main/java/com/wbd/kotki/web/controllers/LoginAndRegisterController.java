@@ -31,9 +31,9 @@ public class LoginAndRegisterController {
 	@GetMapping("/login")
 	public String login(Model model, String error, String logout) {
 		if (error != null)
-			model.addAttribute("error", "Nieprawidłowy login albo hasło");
+			model.addAttribute("message", "Nieprawidłowy login albo hasło");
 		if (logout != null)
-			model.addAttribute("message", "Udało Ci się pomyślnie zalogować");
+			model.addAttribute("message", "Udało Ci się pomyślnie wylogować");
 		return "login";
 	}
 
@@ -68,7 +68,7 @@ public class LoginAndRegisterController {
 		
 	}
 
-	//@PreAuthorize("isAutenticated()")
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping("/profile")
 	public String getProfile(Model model){
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();

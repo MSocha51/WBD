@@ -10,7 +10,8 @@
 		<span class="minititle"><strong>Dodaj kota</strong></span>
 			<br/>
 			<div id="text">
-			<form:form action="addCat" modelAttribute="catDTO" method="post" id="form">
+			<c:url value="/addCat" var="url" />
+			<form:form action="${url }" modelAttribute="catDTO" method="post" id="form">
 				
 				<div class=names>
 					<span>Imię:</span>
