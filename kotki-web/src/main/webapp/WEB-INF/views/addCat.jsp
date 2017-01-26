@@ -10,7 +10,7 @@
 		<span class="minititle"><strong>Dodaj kota</strong></span>
 			<br/>
 			<div id="text">
-			<form:form action="/addCat" modelAttribute="catDTO" method="post" id="form">
+			<form:form action="addCat" modelAttribute="catDTO" method="post" id="form">
 				
 				<div class=names>
 					<span>Imię:</span>
@@ -20,7 +20,7 @@
 			<div class=names>
 				
 					<span>Data urodzenia:</span>
-					<form:input path="birthdayDate" id="birthdayDate" type="date" ></form:input>
+					<form:input path="birthdayDate" id="birthdayDate" type="date" placeholder="dd-mm-yyyy"></form:input>
 					<form:errors path="birthdayDate" cssclass="error" />
 				</div>
 				<div class=names>
@@ -53,20 +53,7 @@
 					<form:input path="race" id="race" ></form:input>
 					<form:errors path="race" cssclass="error" />
 				</div>
-				<div class=names>
-				
-					<span>Nazwa oddziału:</span>	
-					<form:input path="origin" id="origin" ></form:input>
-					<form:errors path="origin" cssclass="error" />
-				</div>
-				<div class=names>
-					<span>Klient:</span>	
-					<form:input path="origin" id="origin" ></form:input>
-					<form:errors path="origin" cssclass="error" />
-				</div>
-				<div class=names>
-				</div>
-
+	
 				<input type="submit" value="Zapisz" />
 
 			</form:form>
