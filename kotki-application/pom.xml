@@ -14,6 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.5.RELEASE</spring.version>
+
 	</properties>
 
 	<dependencies>
@@ -39,6 +40,9 @@
 			<groupId>com.wbd</groupId>
 			<artifactId>kotki-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>		
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+
+
 	</dependencies>
 </project>
