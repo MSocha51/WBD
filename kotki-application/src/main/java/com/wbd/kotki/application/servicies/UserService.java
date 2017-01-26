@@ -67,6 +67,9 @@ public class UserService {
 		newClient.setPhone(convert.apply(registerDto.getPhone()));
 		return newClient;
 	}
-
+	public Client getByMail(String mail){
+		Client client = clientRepo.findByMail(mail);
+		return client;
+	}
 
 }

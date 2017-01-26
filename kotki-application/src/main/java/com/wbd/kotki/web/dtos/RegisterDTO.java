@@ -44,7 +44,8 @@ public class RegisterDTO {
 	@Email(message="Prosze wpisać mail")
 	private String mail;
 	
-	@NotBlank
+
+	@NotBlank(message="Pole obowiązkowe")
 	@Size(min=6,message="Hasło musi mieć przynajmiej 6 znaków")
 	private String password;
 

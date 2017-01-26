@@ -40,7 +40,7 @@
 				</a>
 			</span>
 			<span>
-				<a href="<c:url value="/"/>">
+				<a href="<c:url value="/profile"/>">
 					<strong>
 						Moje konto
 					</strong>
