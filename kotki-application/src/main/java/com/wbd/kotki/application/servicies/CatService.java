@@ -26,4 +26,9 @@ public class CatService {
 		catRepo.findUnaddoptedCats().forEach( (x) -> catList.add(x) );
 		return catList; 
 	}
+	
+	public Cat getByID(Long id){
+		Cat cat=catRepo.findOne(id);
+		return cat;
+	}
 }
