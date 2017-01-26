@@ -34,7 +34,11 @@ public class CatController {
 		model.addAttribute("cat", cat);
 		model.addAttribute("title", cat.getName());
 		Long one = new Long(1);
-		if(one.equals(adopted) || cat.getOwner()!=null) model.addAttribute("message", "Kotek jest już zaadoptowany");
+		if(one.equals(adopted) || cat.getOwner()!=null) {
+			model.addAttribute("message", "Kotek jest już zaadoptowany");
+			model.addAttribute("addopted", true);
+		}else  model.addAttribute("addopted", false);
+		
 		return "cat";
 	}
 	@PreAuthorize("hasRole('ROLE_WORKER')")
@@ -44,7 +48,8 @@ public class CatController {
 		CatDTO catDto = cratreDto(cat);
 		model.addAttribute("catDTO", catDto);
 		model.addAttribute("title", "Edytuj: "+cat.getName());
-		return "addCat";
+		model.addAttribute("id", id);
+		return "edit";
 	}
 
 	@PreAuthorize("hasRole('ROLE_WORKER')")
@@ -54,9 +59,10 @@ public class CatController {
 			model.addAttribute(result.getClass()+".catDTO", result);
 			model.addAttribute("catDTO", catDto);
 			model.addAttribute("title", "Dodaj kota");
-			return "addCat";
+			model.addAttribute("id", id);
+			return "edit";
 		}else{
-			cats.addCat(catDto,id);
+			cats.addCat(catDto,id);			
 			return "redirect:/cats/cat-"+id;
 		}
 		

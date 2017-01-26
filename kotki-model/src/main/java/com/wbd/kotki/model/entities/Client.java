@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,7 +47,7 @@ public class Client {
 	private Long phone;
 	@Column(name = "MAIL", nullable = false, unique = true)
 	private String mail;
-	@OneToMany(mappedBy="owner")
+	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER)
 	private Set<Cat> addoptedCats = new HashSet<Cat>();
 	@OneToOne(mappedBy="client", cascade=CascadeType.ALL)
 	private User user;
