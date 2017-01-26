@@ -3,6 +3,7 @@ package com.wbd.kotki.web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.wbd.kotki.application.servicies.CatService;
@@ -34,5 +35,16 @@ public class CatController {
 		model.addAttribute("cats", cats.getCatsList());
 		model.addAttribute("unnCats", cats.getUnadopptedCatList());
 		return "cat";
+	}
+	@RequestMapping("/contact")
+	public String getContact( Model model){
+		model.addAttribute("title", "Kontakt");
+		return "contact";
+	}
+	@GetMapping("/addCat")
+	public String getAddPerson(Model model){
+		//model.addAttribute("catDTO", new CatDTO());
+		model.addAttribute("title", "Dodaj kota");
+		return "addCat";
 	}
 }

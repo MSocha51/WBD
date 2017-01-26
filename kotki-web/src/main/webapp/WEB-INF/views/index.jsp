@@ -6,9 +6,14 @@
 
 <t:main>
 <jsp:body>
-			<sec:authorize access="isAuthenticated()">
-   				Informacja tylko dla zalogowanych
-			</sec:authorize>
+			<span class="minititle"><strong>Schronisko dla zwierząt</strong></span><br/><br/>
+			Nasze schronisko działa od wielu lat. Odmieniliśmy losy setek kotów. Pomogliśmy im dojść do zdrowia i znaleźliśmy domy pełne miłości.<br/> 
+			Ty również możesz podarować szczęście zwierzakowi, przygarniając jednego z naszych podopiecznych.
+						<br/><br/><br/><br/><br/>
+			<div id="logo">
+			
+			<img src="<c:url value="/resources/cats.png"/>" alt="cats" id="cats"/>
+			</div>
 </jsp:body>
 </t:main>
 	
