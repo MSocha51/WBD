@@ -32,6 +32,7 @@
 				<input type="text" name="MAIL" placeholder="Email" /><br/>
    				<input type="password" name="HASLO" placeholder="Password" /><br/>
 				<input type="submit" value="Login!" />
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form:form>
 		</div>
 		<footer> Schronisko dla zwierząt </footer>
