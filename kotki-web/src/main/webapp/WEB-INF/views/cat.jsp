@@ -10,7 +10,7 @@
 <t:main>
 	<jsp:body>
 
-		<span class="minititle"><strong>${cat.name}</strong></span>
+		<span class="minititle"><strong>${cat.name}</strong></span><br />
 		<span class="minititle"><strong>${message}</strong></span>
 			<br/>
 			<div id="text">
@@ -25,10 +25,10 @@
 			<div class=names>
 				<span>Płeć:</span>
 				<c:if test="${cat.sex eq 'M'.charAt(0)}">
-				samiec
+				Samiec
 				</c:if>
 				<c:if test="${cat.sex eq 'K'.charAt(0)}">
-				samica
+				Samica
 				</c:if>
 				<br />
 			</div>
@@ -74,11 +74,13 @@
 				<input type="submit" value="Edytuj" />
 			</form:form>
 			</sec:authorize>
+			<c:if test="${addopted == false }">
 			<sec:authorize access="hasRole('ROLE_USER')">
 			<form:form class="button" action="${url }/adopt" method="post">
 				<input type="submit" value="Adoptuj" />
 			</form:form>
 			</sec:authorize>
+			</c:if>
 			</div>
 			
 
