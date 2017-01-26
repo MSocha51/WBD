@@ -1,5 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -32,6 +33,7 @@
 					</strong>
 				</a>
 			</span>
+			<sec:authorize access="isAnonymous()">
 			<span>
 				<a href="<c:url value="/login"/>">
 					<strong>
@@ -39,6 +41,8 @@
 					</strong>
 				</a>
 			</span>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_USER')">
 			<span>
 				<a href="<c:url value="/profile"/>">
 					<strong>
@@ -46,13 +50,26 @@
 					</strong>
 				</a>
 			</span>
+			</sec:authorize>
 			<span>
+			<sec:authorize access="isAuthenticated()">
+				<a href="<c:url value="/logout"/>">
+					<strong>
+						Wyloguj się
+					</strong>
+				</a>
+			</sec:authorize>
+			</span>
+			<sec:authorize access="hasRole('ROLE_WORKER')">
+			<span>
+			
 				<a href="<c:url value="/addCat"/>">
 					<strong>
 						Dodaj kota
 					</strong>
 				</a>
 			</span>
+			</sec:authorize>
 		</div>
 		<div id="content">
 		<jsp:doBody></jsp:doBody>

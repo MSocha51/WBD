@@ -33,7 +33,7 @@ public class LoginAndRegisterController {
 		if (error != null)
 			model.addAttribute("error", "Nieprawidłowy login albo hasło");
 		if (logout != null)
-			model.addAttribute("message", "Udało Ci się pomyślnie zalogować");
+			model.addAttribute("message", "Udało Ci się pomyślnie wylogować");
 		return "login";
 	}
 
