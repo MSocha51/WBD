@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -14,8 +15,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wbd.kotki.application.servicies.UserService;
+import com.wbd.kotki.model.entities.Client;
 import com.wbd.kotki.web.dtos.RegisterDTO;
 @Controller
 public class LoginAndRegisterController {
@@ -61,6 +64,15 @@ public class LoginAndRegisterController {
 			return "redirect:/";
 		}
 		
+	}
+	//@PreAuthorize("isAutenticated()")
+	@RequestMapping("/profile")
+	public String getProfile(Model model){
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		Client client = users.getByMail(username);
+		model.addAttribute("client",client);
+		model.addAttribute("title", "Twoje konto");
+		return "profile";
 	}
 
 }
