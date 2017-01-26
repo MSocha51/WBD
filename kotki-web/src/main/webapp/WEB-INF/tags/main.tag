@@ -59,7 +59,6 @@
 					</div>
 				</a>
 			</sec:authorize>
-
 		</div>
 		<div class="clear"></div>
 		<div id="content">
