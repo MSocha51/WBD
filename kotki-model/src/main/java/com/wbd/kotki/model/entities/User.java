@@ -1,5 +1,6 @@
 package com.wbd.kotki.model.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name="ID_ROLI")
 	private Role role;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="ID_KLIENTA",nullable=true)
 	private Client client;
 	
