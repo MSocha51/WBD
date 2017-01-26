@@ -25,7 +25,7 @@ public class Cat {
 	@Column(name = "PLEC")
 	private Character sex;
 	@Column(name = "KOMPLET_LAPEK")
-	private Character pawns;
+	private Character paws;
 	@Column(name = "STERYLIZACJA")
 	private Character sterizlization;
 	@Column(name = "WZROK")
@@ -76,12 +76,12 @@ public class Cat {
 		this.sex = sex;
 	}
 
-	public Character getPawns() {
-		return pawns;
+	public Character getPaws() {
+		return paws;
 	}
 
-	public void setPawns(Character pawns) {
-		this.pawns = pawns;
+	public void setPaws(Character paws) {
+		this.paws = paws;
 	}
 
 	public Character getSterizlization() {
@@ -131,7 +131,7 @@ public class Cat {
 		result = prime * result + ((birthdayDate == null) ? 0 : birthdayDate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((pawns == null) ? 0 : pawns.hashCode());
+		result = prime * result + ((paws == null) ? 0 : paws.hashCode());
 		result = prime * result + ((race == null) ? 0 : race.hashCode());
 		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
 		result = prime * result + ((sight == null) ? 0 : sight.hashCode());
@@ -163,10 +163,10 @@ public class Cat {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (pawns == null) {
-			if (other.pawns != null)
+		if (paws == null) {
+			if (other.paws != null)
 				return false;
-		} else if (!pawns.equals(other.pawns))
+		} else if (!paws.equals(other.paws))
 			return false;
 		if (race == null) {
 			if (other.race != null)
@@ -194,7 +194,7 @@ public class Cat {
 	@Override
 	public String toString() {
 		return "Cat [id=" + id + ", birthdayDate=" + birthdayDate + ", name=" + name + ", sex=" + sex + ", pawns="
-				+ pawns + ", sterizlization=" + sterizlization + ", sight=" + sight + ", race=" + race + "]";
+				+ paws + ", sterizlization=" + sterizlization + ", sight=" + sight + ", race=" + race + "]";
 	}
 
 }
