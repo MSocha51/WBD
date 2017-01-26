@@ -68,7 +68,7 @@
 			<input type="submit" value="Edytuj" />
 			</form>
 			</sec:authorize>
-			<sec:authorize access="hasRole('USER')">
+			<sec:authorize access="hasRole('ROLE_USER')">
 			<form class="button" action="/" method=post>
 			<input type="submit" value="Adoptuj" />
 			</form>
