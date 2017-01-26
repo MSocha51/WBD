@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <t:main>
 	<jsp:body>
 
@@ -58,15 +59,20 @@
 			<span>Rasa:</span>
 				${cat.race.raceName}<br />
 			</div>
+			<br/>
+			<sec:authorize access="hasRole('ROLE_WORKER')">
 			<form class="button" action="/" method=post>
 			<input type="submit" value="Usuń" />
 			</form>
 			<form class="button" action="/cats/cat-${cat.id}/edit" method=post>
 			<input type="submit" value="Edytuj" />
 			</form>
+			</sec:authorize>
+			<sec:authorize access="hasRole('USER')">
 			<form class="button" action="/" method=post>
 			<input type="submit" value="Adoptuj" />
 			</form>
+			</sec:authorize>
 			</div>
 			
 
