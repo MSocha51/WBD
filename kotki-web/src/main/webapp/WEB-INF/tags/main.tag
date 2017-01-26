@@ -42,7 +42,7 @@
 				</a>
 			</span>
 			</sec:authorize>
-			<sec:authorize access="hasRole('USER')">
+			<sec:authorize access="hasRole('ROLE_USER')">
 			<span>
 				<a href="<c:url value="/profile"/>">
 					<strong>
