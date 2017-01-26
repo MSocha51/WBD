@@ -38,7 +38,6 @@ public class CatController {
 		Cat cat = cats.getByID(id);
 		model.addAttribute("cat", cat);
 		model.addAttribute("title", cat.getName());
-		System.out.println(cat);
 		return "cat";
 	}
 	@RequestMapping("/contact")
