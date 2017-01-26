@@ -58,6 +58,6 @@
 				<input type="submit" value="Zapisz" />
 
 			</form:form>
-
+</div>
 </jsp:body>
 </t:main>

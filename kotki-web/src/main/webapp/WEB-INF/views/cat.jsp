@@ -5,6 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <t:main>
 	<jsp:body>
 
@@ -61,16 +63,22 @@
 			<span>Rasa:</span>
 				${cat.race.raceName}<br />
 			</div>
-			<spring:url value="./cat-${cat.id}" var="url" />
+
+			<spring:url value="./cat-${cat.id}" var="url" />			
+			<br/>
+			<sec:authorize access="hasRole('ROLE_WORKER')">
 			<form:form class="button" action="${url}/delete" method="post">
 				<input type="submit" value="Usuń" />
 			</form:form>
 			<form:form class="button" action="${url}/edit" method="get">
 				<input type="submit" value="Edytuj" />
 			</form:form>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_USER')">
 			<form:form class="button" action="${url }/adopt" method="post">
 				<input type="submit" value="Adoptuj" />
 			</form:form>
+			</sec:authorize>
 			</div>
 			
 
