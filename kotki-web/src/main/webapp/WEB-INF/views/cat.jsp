@@ -22,7 +22,7 @@
 			</div>
 			<div class=names>
 				<span>Komplet łapek:</span>
-				${cat.pawns }<br />
+				${cat.paws }<br />
 			</div>
 			<div class=names>
 				<span>Sterylizacja:</span>
