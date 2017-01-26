@@ -2,15 +2,26 @@ package com.wbd.kotki.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.wbd.kotki.application.servicies.UserService;
+import com.wbd.kotki.web.dtos.RegisterDTO;
 @Controller
 public class LoginAndRegisterController {
+	
+	@Autowired
+	private UserService users;
 
 	@GetMapping("/login")
 	public String login(Model model, String error, String logout) {
@@ -28,6 +39,25 @@ public class LoginAndRegisterController {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 			return "redirect:/login?logout";
 		}else{
+			return "redirect:/";
+		}
+		
+	}
+	
+	@GetMapping("register")
+	public String getRegisterPage(Model model){
+		model.addAttribute("registerDto",new RegisterDTO());
+		return "register";
+	}
+	
+	@PostMapping("register")
+	public String postRegister(Model model, @ModelAttribute("registerDto") @Valid RegisterDTO registerDto , BindingResult result){
+		if(result.hasErrors()){
+			model.addAttribute(result.getClass()+".registerDto", result);
+			model.addAttribute("registerDto", registerDto);
+			return "register";
+		}else{
+			users.addClientUser(registerDto);
 			return "redirect:/";
 		}
 		
