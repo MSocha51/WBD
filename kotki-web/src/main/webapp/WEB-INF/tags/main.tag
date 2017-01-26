@@ -41,6 +41,7 @@
 			<sec:authorize access="hasRole('ROLE_USER')">
 				<a href="<c:url value="/profile"/>">
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<strong>
 						Moje konto
 					</strong>
@@ -49,19 +50,34 @@
 			</sec:authorize>
 
 =======
+=======
 					<div class="menu-item">
 						<strong> Moje konto </strong>
 					</div>
 				</a>
 			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_WORKER')">
+				<a href="<c:url value="/addCat"/>">
+>>>>>>> origin/iza2
+					<div class="menu-item">
+						<strong> Moje konto </strong>
+					</div>
+				</a>
+			</sec:authorize>
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
 			<sec:authorize access="hasRole('ROLE_WORKER')">
 				<a href="<c:url value="/addCat"/>">
+=======
+			<sec:authorize access="isAuthenticated()">
+				<a href="<c:url value="/logout"/>">
+>>>>>>> origin/iza2
 					<div class="menu-item">
 						<strong> Dodaj kota </strong>
 					</div>
 				</a>
 			</sec:authorize>
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<span>
 			<sec:authorize access="isAuthenticated()">
@@ -82,6 +98,8 @@
 			</sec:authorize>
 
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> origin/iza2
 		</div>
 		<div class="clear"></div>
 		<div id="content">
