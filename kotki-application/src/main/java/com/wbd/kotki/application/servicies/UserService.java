@@ -68,7 +68,7 @@ public class UserService {
 		return newClient;
 	}
 	public Client getByMail(String mail){
-		Client client = clientRepo.findByMail(mail);
+		Client client = clientRepo.findByMailIgnoreCase(mail);
 		return client;
 	}
 
