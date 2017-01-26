@@ -5,5 +5,5 @@ import com.wbd.kotki.model.entities.Client;
 
 public interface ClientRepository  extends CrudRepository<Client,Long>{
 
-	public Client findByMail(String mail);
+	public Client findByMailIgnoreCase(String mail);
 }
