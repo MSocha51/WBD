@@ -1,4 +1,4 @@
-package co.wbd.kotki.web.dtos;
+package com.wbd.kotki.web.dtos;
 import java.util.Date;
 
 public class CatDTO {
