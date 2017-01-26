@@ -6,6 +6,7 @@
 <t:main>
 	<jsp:body>
 		<form:form action="register" method="post" modelAttribute="registerDto">
+
 		<span class="minititle"><strong>Zarejestruj się</strong></span><br/><br/>
 		
 			<form:input path="firstName" id="firstName" placeholder="Imie"></form:input><br/>
@@ -36,6 +37,7 @@
 			<form:errors path="postCode" cssclass="error" />
 			<br />
 			<form:input path="phone" id="phone" placeholder="Telefon"></form:input><br/>
+
 			<form:errors path="phone" cssclass="error" />
 			<br />
 			<input type="submit" value="Załóż konto" />

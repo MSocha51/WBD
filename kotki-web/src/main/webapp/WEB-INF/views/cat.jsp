@@ -45,7 +45,7 @@
 				Nie
 				</c:if>
 			</div>
-						<div class=names>
+			<div class=names>
 				<span>Wzrok:</span>
 				<c:if test="${cat.sight   eq 'T'.charAt(0)}">
 				Tak
@@ -56,15 +56,7 @@
 			</div>
 			<div class=names>
 			<span>Rasa:</span>
-				<br />
-			</div>
-			<div class=names>
-			<span>Nazwa oddziału:</span>
-				<br />
-			</div>
-			<div class=names>
-			<span>Klient:</span>
-				<br />
+				${cat.race.raceName}<br />
 			</div>
 			<form class="button" action="/" method=post>
 			<input type="submit" value="Usuń" />
