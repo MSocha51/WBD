@@ -13,7 +13,7 @@
    				<input type="password" name="HASLO" placeholder="Password" /><br/>
 				<input type="submit" value="Login!" />
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/><br/>
-				<a href="<c:url value="/"/>"> Nie masz konta? Zarejestruj się!</a>
+				<a href="<c:url value="/register"/>"> Nie masz konta? Zarejestruj się!</a>
 			</form:form>
 			<br/><br/><br/><br/><br/>
 			<div id="logo">
