@@ -44,7 +44,12 @@ public class Cat {
 	
 	@PreRemove
 	private void prepareToRemove(){
-		race.getCats().remove(this);
+		try{
+			race.getCats().remove(this);
+		}catch(NullPointerException e){}
+		try{
+			owner.getAddoptedCats().remove(this);
+		}catch(NullPointerException e){}
 	}
 
 	public Long getId() {

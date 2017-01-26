@@ -3,11 +3,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <t:main>
 	<jsp:body>
 
-		<span class="minititle"><strong>${cat.name}</strong></span>
+		<span class="minititle"><strong>${cat.name}</strong></span><br />
+		<span class="minititle"><strong>${message}</strong></span>
 			<br/>
 			<div id="text">
 			<div class="names">
@@ -21,10 +25,10 @@
 			<div class=names>
 				<span>Płeć:</span>
 				<c:if test="${cat.sex eq 'M'.charAt(0)}">
-				samiec
+				Samiec
 				</c:if>
 				<c:if test="${cat.sex eq 'K'.charAt(0)}">
-				samica
+				Samica
 				</c:if>
 				<br />
 			</div>
@@ -59,20 +63,24 @@
 			<span>Rasa:</span>
 				${cat.race.raceName}<br />
 			</div>
+
+			<spring:url value="./cat-${cat.id}" var="url" />			
 			<br/>
 			<sec:authorize access="hasRole('ROLE_WORKER')">
-			<form class="button" action="/" method=post>
-			<input type="submit" value="Usuń" />
-			</form>
-			<form class="button" action="/cats/cat-${cat.id}/edit" method=post>
-			<input type="submit" value="Edytuj" />
-			</form>
+			<form:form class="button" action="${url}/delete" method="post">
+				<input type="submit" value="Usuń" />
+			</form:form>
+			<form:form class="button" action="${url}/edit" method="get">
+				<input type="submit" value="Edytuj" />
+			</form:form>
 			</sec:authorize>
+			<c:if test="${addopted == false }">
 			<sec:authorize access="hasRole('ROLE_USER')">
-			<form class="button" action="/" method=post>
-			<input type="submit" value="Adoptuj" />
-			</form>
+			<form:form class="button" action="${url }/adopt" method="post">
+				<input type="submit" value="Adoptuj" />
+			</form:form>
 			</sec:authorize>
+			</c:if>
 			</div>
 			
 
