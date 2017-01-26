@@ -26,7 +26,7 @@
 				</a>
 			</span>
 			<span>
-				<a href="<c:url value="/"/>">
+				<a href="<c:url value="/contact"/>">
 					<strong>
 						Kontakt
 					</strong>
@@ -36,6 +36,20 @@
 				<a href="<c:url value="/login"/>">
 					<strong>
 						Zaloguj się
+					</strong>
+				</a>
+			</span>
+			<span>
+				<a href="<c:url value="/"/>">
+					<strong>
+						Moje konto
+					</strong>
+				</a>
+			</span>
+			<span>
+				<a href="<c:url value="/addCat"/>">
+					<strong>
+						Dodaj kota
 					</strong>
 				</a>
 			</span>
