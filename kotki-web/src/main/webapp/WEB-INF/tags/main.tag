@@ -64,7 +64,7 @@
 		<div id="content">
 			<jsp:doBody></jsp:doBody>
 		</div>
-		<footer> Schronisko dla zwierząt </footer>
+		<footer> Schronisko dla zwierząt Stworzone przez Mateusz Socha i Izabela Plucińska &copy; </footer>
 	</div>
 </body>
 </html>

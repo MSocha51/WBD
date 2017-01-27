@@ -7,9 +7,10 @@
 <t:main>
 <jsp:body>
 <span class="minititle"><strong>Dane kontaktowe</strong></span><br/><br/>
-Nasze biuro mieści się przy ulicy Nowowiejskiej 15.<br/>
-Godziny otwarcia: 9:00-19:00 <br/>
-Telefon: 123 777 777 <br/>
+<p>Nasze biuro mieści się przy ulicy Nowowiejskiej 15.</p>
+<p>Godziny otwarcia: 9:00-19:00 </p>
+<p>Telefon: 123 777 777 </p>
+<p>Strona stworzona na potrzeby projektu z WBD. Autorzy: Mateusz Socha i Izabela Plucińska miłośnicy kotów</p>
 
 <div class="cat">
 	<div class="ear ear--left"></div>
