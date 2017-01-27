@@ -6,8 +6,10 @@
 
 <t:main>
 <jsp:body>
-
-
+<span class="minititle"><strong>Dane kontaktowe</strong></span><br/><br/>
+Nasze biuro mieści się przy ulicy Nowowiejskiej 15.<br/>
+Godziny otwarcia: 9:00-19:00 <br/>
+Telefon: 123 777 777 <br/>
 
 <div class="cat">
 	<div class="ear ear--left"></div>
@@ -22,6 +24,7 @@
 		<div class="muzzle"></div>
 	</div>
 </div>
+
 </jsp:body>
 </t:main>
 	

@@ -47,6 +47,7 @@
 				${client.phone }<br />
 			</div>
 			<div class="names">
+			<span>Zaadoptowane koty:</span>
 				<c:forEach var="cat" items="${client.addoptedCats }" varStatus="index">
 					<span><a href="<c:url value="/cats/cat-${cat.id}"/>">${index.index + 1}.${cat.name}</a><br /></span>
 				</c:forEach>
